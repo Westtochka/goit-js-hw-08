@@ -3,15 +3,16 @@ const form=document.querySelector('form');
 const input=document.querySelector('input');
 const textarea=document.querySelector('textarea');
 const SAVE_FORM_STATE='feedback-form-state';
-formData={} 
+  const savedMessage=JSON.parse(localStorage.getItem('SAVE_FORM_STATE'))|| {}
+
+formData=savedMessage;
 
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input',throttle(onCreateObject, 500));
 
 populateTextarea()
 
-function populateTextarea(){
-    const savedMessage=JSON.parse(localStorage.getItem('SAVE_FORM_STATE'))|| {}
+function populateTextarea(){ 
     if(savedMessage.email){
         email.value=savedMessage.email}                                  
     if(savedMessage.message){
@@ -27,4 +28,5 @@ function onFormSubmit(evt){
     evt.currentTarget.reset();
     localStorage.removeItem('SAVE_FORM_STATE')  
     console.log(formData)
+  return formData
     }
