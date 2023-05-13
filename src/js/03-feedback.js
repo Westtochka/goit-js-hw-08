@@ -10,12 +10,13 @@ const formData={};
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input',throttle(onCreateObject, 500));
 
-populateTextarea()
+populateTextarea();
 
 function populateTextarea(){ 
-const savedMessage=JSON.parse(localStorage.getItem('SAVE_FORM_STATE'))|| {} ;  
+const savedMessage=
+JSON.parse(localStorage.getItem('SAVE_FORM_STATE'))|| {} ;  
     if(savedMessage){
-        input.value=savedMessage.email || ''                                  
+        input.value=savedMessage.email || '';                                  
         textarea.value=savedMessage.message || ''};
 }
 function onCreateObject(evt){
