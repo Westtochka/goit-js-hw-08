@@ -5,7 +5,7 @@ const textarea=document.querySelector('textarea');
 const SAVE_FORM_STATE='feedback-form-state';
   const savedMessage=JSON.parse(localStorage.getItem('SAVE_FORM_STATE'))|| {}
 
-formData={};
+const formData={};
 
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input',throttle(onCreateObject, 500));
