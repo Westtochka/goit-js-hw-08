@@ -5,7 +5,7 @@ const textarea=document.querySelector('textarea');
 const SAVE_FORM_STATE='feedback-form-state';
   const savedMessage=JSON.parse(localStorage.getItem('SAVE_FORM_STATE'))|| {}
 
-formData=savedMessage;
+formData={};
 
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input',throttle(onCreateObject, 500));
@@ -14,9 +14,9 @@ populateTextarea()
 
 function populateTextarea(){ 
     if(savedMessage.email){
-        email.value=savedMessage.email}                                  
+        email.value=savedMessage.email || ''}                                  
     if(savedMessage.message){
-        textarea.value=savedMessage.message}
+        textarea.value=savedMessage.message || ''}
     };
 function onCreateObject(evt){
     formData[evt.target.name]=evt.target.value;
