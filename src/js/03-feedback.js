@@ -13,20 +13,20 @@ populateTextarea();
 
 function populateTextarea(){ 
 const savedMessage=
-JSON.parse(localStorage.getItem('SAVE_FORM_STATE'))|| {} ;  
+JSON.parse(localStorage.getItem(SAVE_FORM_STATE))|| {} ;  
     if(savedMessage){
         input.value=savedMessage.email || '';                                  
         textarea.value=savedMessage.message || ''}
 }
 function onCreateObject(evt){
     formData[evt.target.name]=evt.target.value;
-    localStorage.setItem('LOCAL_STORAGE_KEY', JSON.stringify(formData))
+    localStorage.setItem(SAVE_FORM_STATE, JSON.stringify(formData))
 }
 
 function onFormSubmit(evt){
     evt.preventDefault();
     evt.currentTarget.reset();
-    localStorage.removeItem('SAVE_FORM_STATE')  
+    localStorage.removeItem(SAVE_FORM_STATE)  
     console.log(formData)
     return formData;
     }
