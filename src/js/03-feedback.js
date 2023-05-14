@@ -6,7 +6,6 @@ const SAVE_FORM_STATE='feedback-form-state';
 
 const formData={} ;
 
-
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input',throttle(onCreateObject, 500));
 
